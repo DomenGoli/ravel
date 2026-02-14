@@ -14,7 +14,7 @@ async function page() {
         <div>
             <div className="flex flex-col items-center justify-center gap-2">
             {imageArray?.slice(1)?.map((img, i) => (
-                <ImageCard key={i} imgName={img} imgURL={`${IMG_URL}/${userId}/${img}`} />
+                <ImageCard mode={"edit"} key={i} imgName={img} userId={userId} imgURL={`${IMG_URL}/${userId}/${img}`} />
             ))}
         </div>
         </div>

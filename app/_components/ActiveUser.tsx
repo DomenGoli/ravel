@@ -13,12 +13,12 @@ async function ActiveUser() {
     return (
         <div>
             {session && (
-                <div className="flex gap-4">
+                <div className="flex items-center gap-5">
                     <p className="text-2xl">{name}</p>
                     <form action={logout}>
                         <IconButton>
 
-                        <button><HiOutlineLogout color="white" /></button>
+                        <button><HiOutlineLogout color="white" size={40} /></button>
                         </IconButton>
                     </form>
                 </div>

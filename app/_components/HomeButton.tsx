@@ -6,7 +6,7 @@ function HomeButton() {
     return (
         <div className="">
             <IconButton>
-                <Link href="/"><IoHome color="white" /></Link>
+                <Link href="/"><IoHome color="white" size={40} /></Link>
             </IconButton>
         </div>
     )

@@ -8,10 +8,10 @@ async function page() {
     return (
         <div className="flex flex-col gap-20">
             <UploadImages id={id} />
-            <div>
+            {/* <div>
                 <p>Nalozena slika se samodejno</p>
                 <p>zbrise po 48 urah.</p>
-            </div>
+            </div> */}
         </div>
     );
 }
