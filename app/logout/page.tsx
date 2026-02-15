@@ -11,7 +11,7 @@ function page() {
             <div className="flex  flex-col items-center justify-center gap-3">
                 <label className="text-stone-400">Se želite odjaviti?</label>
                 <form action={logout}>
-                    <div className="flex">
+                    <div className="flex gap-3">
                         <MenuButton>
                             <button type="submit">Da</button>
                         </MenuButton>
