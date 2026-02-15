@@ -4,6 +4,8 @@ import { saveAs } from "file-saver";
 import { MdDownloadForOffline } from "react-icons/md";
 import { TiDelete } from "react-icons/ti";
 import { deleteFile } from "../_lib/data-service";
+import { FaCheckCircle } from "react-icons/fa";
+import { useState } from "react";
 
 function ImageCard({
     imgURL,
@@ -16,26 +18,51 @@ function ImageCard({
     mode?: string;
     userId?: string;
 }) {
+    // const {downloadedFiles} = useAppSelector(store=> store.galery)
+    const [isDownloaded, setIsDownloaded] = useState(false)
+
+
     function handleDownload(): void {
         saveAs(imgURL, imgName);
+        // markAsDownloaded(imgName)
+        setIsDownloaded(true)
     }
 
     function handleDelete():void {
         deleteFile(imgName, userId)
     }
 
+    // useEffect(function() {
+    //     const isIn = downloadedFiles === imgName
+    //     if(isIn) setIsDownloaded(true)
+    // }, [downloadedFiles, imgName])
+
     return (
         <div className="relative w-80 h-50">
-            <button
+            {!isDownloaded && (
+                <button
                 onClick={handleDownload}
                 className="absolute z-30 cursor-pointer bottom-[0.4rem] right-[0.4rem]"
             >
-                <MdDownloadForOffline size={40} color="white" />
+                <MdDownloadForOffline size={41} color="white" />
             </button>
+            )}
+
+            {isDownloaded && (
+                <button
+                // onClick={handleDownload}
+                className="absolute z-30 cursor-pointer bottom-[0.6rem] right-[0.6rem]"
+            >
+                <FaCheckCircle size={35} color="white" />
+            </button>
+            )}
+            
+
+
             {mode === "edit" && (
                 <button
                     onClick={handleDelete}
-                    className="absolute z-30 cursor-pointer top-[0.2rem] left-[0.2rem]"
+                    className="absolute z-30 cursor-pointer top-[0.1rem] left-[0.1rem]"
                 >
                     <TiDelete size={50} color="white" />
                 </button>
@@ -48,8 +75,9 @@ function ImageCard({
                 src={imgURL}
                 alt=""
                 fill
+                // fill
                 className="object-cover"
-                quality={80}
+                // quality={80}
                 // width={50}
                 // height={50}
             />

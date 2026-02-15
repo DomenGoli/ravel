@@ -3,8 +3,9 @@
 import { useQuery } from "@tanstack/react-query"
 // import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { getUserImagesById } from "../_lib/actions"
-import { useAppDispatch } from "../hooks"
+import { useAppDispatch, useAppSelector } from "../hooks"
 import { cacheId, cacheImages } from "../_lib/redux/galerySlice"
+
 
 type UserType = {
     name: string;
@@ -15,8 +16,8 @@ type UserButtonProps = {
     user: UserType
 }
 
-function UserButton({user}: UserButtonProps) {
-
+function ContactCard({user}: UserButtonProps) {
+    const {userId} = useAppSelector(store => store.galery)
     const dispatch = useAppDispatch()
     // const searchParams = useSearchParams()
     // const pathName = usePathname()
@@ -28,6 +29,12 @@ function UserButton({user}: UserButtonProps) {
         refetchOnMount: true,
     });
 
+    const cardStyle ={
+        base: "flex items-center justify-center pb-1 font-bold border-2 rounded-[25px] border-black ml-0.5 w-20 h-9 cursor-pointer",
+        inactive: "bg-(--strava-bar) text-stone-400",
+        active: "bg-stone-400 text-(--strava-bar)"
+    }
+
     function handleClick():void {
         dispatch(cacheImages(data))
         dispatch(cacheId(user.id))
@@ -37,10 +44,10 @@ function UserButton({user}: UserButtonProps) {
     if(isLoading) return null;
 
     return (
-        <div className="text-center font-bold border border-(--icon) rounded-[15px] ml-0.5 w-20 bg-(--button) cursor-pointer" onClick={handleClick}>
+        <div className={`${cardStyle.base} ${user.id === userId ? cardStyle.active : cardStyle.inactive}`} onClick={handleClick}>
             {user.name}
         </div>
     )
 }
 
-export default UserButton
+export default ContactCard

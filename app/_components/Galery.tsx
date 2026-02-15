@@ -1,18 +1,20 @@
 "use client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ImagesList from "./ImagesList";
-import UserList from "./UserList";
+import UserList from "./ContactList";
 import { Provider } from "react-redux";
 import store from "../_lib/redux/store";
+// import LastFive from "./LastFive";
 
 type UserType = {
     name: string;
     id: string;
-}
+};
 
 type GaleryProps = {
-    contacts: UserType[]
-}
+    contacts: UserType[];
+    // lastFiveImages: string[] | undefined
+};
 
 function Galery({ contacts }: GaleryProps) {
     // const slike = await getUserImagesById(1);
@@ -23,13 +25,17 @@ function Galery({ contacts }: GaleryProps) {
 
     // console.log(slike);
     return (
-        <div className="flex flex-col gap-6">
+        <div className="grid grid-rows-[auto_1fr]">
             <UserList contacts={contacts} />
-            <QueryClientProvider client={queryClient}>
-                <Provider store={store}>
-                    <ImagesList />
-                </Provider>
-            </QueryClientProvider>
+            <div>
+                
+                <QueryClientProvider client={queryClient}>
+                    <Provider store={store}>
+                        <ImagesList />
+                        {/* <LastFive lastFiveImages={lastFiveImages}/> */}
+                    </Provider>
+                </QueryClientProvider>
+            </div>
         </div>
     );
 }

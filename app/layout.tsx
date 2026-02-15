@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/Navbar";
+import Footer from "./_components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,10 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-(--ozadje) antialiased flex flex-col items-center gap-4 h-screen w-screen`}
+        className="bg-(--strava-ozadje) antialiased items-center gap-4 text-stone-400"
       >
-        <Navbar />
+        {/* <Navbar /> */}
         {children}
+        {/* <Footer /> */}
       </body>
     </html>
   );

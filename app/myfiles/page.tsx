@@ -1,24 +1,36 @@
-import ImageCard from "../_components/ImageCard"
-import { auth } from "../_lib/auth"
-import { getImages, getUserByName } from "../_lib/data-service"
+import Footer from "../_components/Footer";
+import ImageCard from "../_components/ImageCard";
+import Navbar from "../_components/Navbar";
+import { auth } from "../_lib/auth";
+import { getImages, getUserByName } from "../_lib/data-service";
 
 const IMG_URL =
     "https://fkcolgozeqvaxilodttu.supabase.co/storage/v1/object/public/slike";
 
 async function page() {
-    const session = await auth()
-    const {id: userId} = await getUserByName(session?.user?.name)
-    const imageArray = await getImages(userId)
+    const session = await auth();
+    const { id: userId } = await getUserByName(session?.user?.name);
+    const imageArray = await getImages(userId);
 
     return (
-        <div>
-            <div className="flex flex-col items-center justify-center gap-2">
-            {imageArray?.slice(1)?.map((img, i) => (
-                <ImageCard mode={"edit"} key={i} imgName={img} userId={userId} imgURL={`${IMG_URL}/${userId}/${img}`} />
-            ))}
+        <div className="grid h-screen grid-rows-[1fr_auto_1fr]">
+            <Navbar />
+            <div className="overflow-scroll">
+                <div className="flex flex-col items-center justify-center gap-2 overflow-scroll">
+                    {imageArray?.slice(1)?.map((img, i) => (
+                        <ImageCard
+                            mode={"edit"}
+                            key={i}
+                            imgName={img}
+                            userId={userId}
+                            imgURL={`${IMG_URL}/${userId}/${img}`}
+                        />
+                    ))}
+                </div>
+            </div>
+            <Footer />
         </div>
-        </div>
-    )
+    );
 }
 
-export default page
+export default page;

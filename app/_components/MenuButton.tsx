@@ -1,13 +1,37 @@
-type MenuButtonProps = {
-    children: React.ReactNode
-}
 
+
+// const buttonStyle = {
+//     base: "",
+//     inactive: "",
+//     active: "",
+// }
+
+type MenuButtonProps = {
+    children: React.ReactNode,
+    active?: boolean,
+    page?: string,
+}
 function MenuButton({children}: MenuButtonProps) {
     return (
-        <div className="flex items-center justify-center text-3xl border-2 border-(--icon) rounded-[30px] w-50 h-15 bg-(--button) cursor-pointer">
+        <div className="flex items-center justify-center border-2 border-(--strava-ozadje) text-sm rounded-[30px] w-25 h-10 bg-black cursor-pointer text-(--strava-button)">
             {children}
         </div>
     )
 }
 
 export default MenuButton
+
+
+
+// const footerRouts = {
+//     upload: "/upload",
+//     myfiles: "/myfiles",
+// };
+
+// const linkStyle = {
+//     base: "flex items-center justify-center border-2 border-(--strava-ozadje) text-sm rounded-[30px] w-25 h-10 cursor-pointer text-(--strava-button)",
+//     inactive: "bg-black",
+//     active: "bg-white",
+// };
+
+// className={`${linkStyle.base} ${pathname === footerRouts.myfiles ? linkStyle.active : linkStyle.inactive}`}

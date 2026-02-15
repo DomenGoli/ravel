@@ -1,6 +1,6 @@
 // import NextAuth from "next-auth";
 import { auth } from "@/app/_lib/auth";
-import { apiAuthPrefix, DEFAULT_LOGIN_REDIRECT } from "./routes";
+import { apiAuthPrefix } from "./routes";
 
 export default auth((req) => {
     const { nextUrl } = req;
@@ -19,9 +19,8 @@ export default auth((req) => {
     //     return Response.redirect(new URL("/auth/login", nextUrl));
     // }
 
-    
     if(isLoginPage && isLoggedIn) {
-        return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
+        return Response.redirect(new URL("/auth/login", nextUrl));
     }
     
     if (isLoginPage && !isLoggedIn) {

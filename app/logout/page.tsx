@@ -1,0 +1,29 @@
+import Footer from "../_components/Footer";
+import Navbar from "../_components/Navbar";
+import { logout } from "../_lib/actions";
+import Link from "next/link";
+import MenuButton from "../_components/MenuButton";
+
+function page() {
+    return (
+        <div className="grid h-screen grid-rows-[auto_1fr_auto]">
+            <Navbar />
+            <div className="flex  flex-col items-center justify-center gap-3">
+                <label className="text-stone-400">Se želite odjaviti?</label>
+                <form action={logout}>
+                    <div className="flex">
+                        <MenuButton>
+                            <button type="submit">Da</button>
+                        </MenuButton>
+                        <MenuButton>
+                            <Link href="/">Ne</Link>
+                        </MenuButton>
+                    </div>
+                </form>
+            </div>
+            <Footer />
+        </div>
+    );
+}
+
+export default page;

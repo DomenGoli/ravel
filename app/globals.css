@@ -4,8 +4,11 @@
   --ozadje: #d1d0d0;
   --icon: #5c4e4e;
   --button: #988686;
-  --special: #000000
+  --special: #000000;
   --foreground: #171717;
+  --strava-button: #fc5200;
+  --strava-ozadje: #141414;
+  --strava-bar: #21211f;
 }
 /*
 @theme inline {

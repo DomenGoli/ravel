@@ -39,7 +39,7 @@ function UploadImages({ id }: UploadImagesProps) {
                 Izberi slike
             </label>
             <input
-                className="flex items-center justify-center file:h-20 bg-(--button) file:text-[0rem] file:mr-3 h-20 rounded-[40] cursor-pointer bg-neutral-secondary-medium border border-default-medium text-heading text-md rounded-base focus:ring-brand focus:border-brand w-full shadow-xs placeholder:text-body"
+                className="flex items-center justify-center file:h-20 bg-(--button) file:text-[0rem] file:mr-3 h-20 rounded-[40] cursor-pointer bg-neutral-secondary-medium border border-default-medium text-black text-center text-heading text-md rounded-base focus:ring-brand focus:border-brand w-full shadow-xs placeholder:text-body"
                 id="multiple_files"
                 type="file"
                 multiple

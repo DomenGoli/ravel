@@ -18,6 +18,26 @@ export async function getImages(id: string): Promise<string[] | undefined> {
     return list;
 }
 
+export async function getLastFiveImages(): Promise<string[] | undefined> {
+    const {data: user1} = await supabase.storage.from("slike").list("1")
+    const {data: user2} = await supabase.storage.from("slike").list("2")
+    const {data: user3} = await supabase.storage.from("slike").list("2")
+
+    const allImages = [user1, user2, user3].flat()
+
+    const sortedImages = allImages.sort((a,b) => {
+        const dateA = new Date(a!.created_at).getTime()
+        const dateB = new Date(b!.created_at).getTime()
+        if(dateA < dateB) return -1
+        if(dateA > dateB) return 1
+        return 0
+    }).slice(1,6)
+    
+    const lastFiveList = sortedImages?.map(img=> img!.name)
+
+    return lastFiveList
+}
+
 type UserType = {
     name: string;
     username: string;

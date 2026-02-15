@@ -2,7 +2,7 @@ import LoginForm from "@/app/_components/LoginForm"
 
 function page() {
     return (
-        <div className="flex h-screen">
+        <div className="flex h-screen items-center justify-center">
             <LoginForm />
         </div>
     )

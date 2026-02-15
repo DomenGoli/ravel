@@ -11,6 +11,7 @@ async function page() {
 
     return (
         <div>
+            oooooooold page zbrisi!!!
             <Galery contacts={contacts} />
         </div>
     )
