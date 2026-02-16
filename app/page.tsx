@@ -51,6 +51,8 @@ export default async function Home() {
     //         : element.requestFullScreen();
     // }
 
+    
+
     return (
         <div className="grid h-screen grid-rows-[auto_1fr_auto]">
             <Navbar />

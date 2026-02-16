@@ -1,6 +1,8 @@
 "use client";
 import ImageCard from "./ImageCard";
 import { useAppSelector } from "../hooks";
+import { Suspense } from "react";
+import Spinner from "../_ui/Spinner";
 
 const IMG_URL =
     "https://fkcolgozeqvaxilodttu.supabase.co/storage/v1/object/public/slike";
@@ -27,13 +29,15 @@ function ImagesList() {
     return (
         <div className="overflow-scroll">
             <div className="flex flex-col items-center justify-center gap-2 ">
+                {/* <Suspense fallback={<Spinner />}> */}
                 {imageArray.slice(1)?.map((img, i) => (
                     <ImageCard
-                        key={i}
-                        imgName={img}
-                        imgURL={`${IMG_URL}/${userId}/${img}`}
+                    key={i}
+                    imgName={img}
+                    imgURL={`${IMG_URL}/${userId}/${img}`}
                     />
                 ))}
+                {/* </Suspense> */}
             </div>
         </div>
     );

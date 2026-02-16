@@ -10,6 +10,8 @@ export async function getUsers() {
 }
 
 export async function getImages(id: string): Promise<string[] | undefined> {
+    // For testing db data long loading time
+    // await new Promise((res) => setTimeout(res, 5000));
     const { data, error } = await supabase.storage.from("slike").list(id);
     if (error) {
     }

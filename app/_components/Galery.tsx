@@ -5,6 +5,7 @@ import UserList from "./ContactList";
 import { Provider } from "react-redux";
 import store from "../_lib/redux/store";
 import LastFive from "./LastFive";
+import { useEffect } from "react";
 // import LastFive from "./LastFive";
 
 
@@ -31,6 +32,26 @@ function Galery({ contacts }: GaleryProps) {
     // queryClient.invalidateQueries({ queryKey: ['user-images'] })
 
     // console.log(slike);
+    function toggleFullScreen() {
+        const element = document.body;
+
+        // if (event instanceof HTMLElement) {
+        //     element = event;
+        // }
+        if (!document.fullscreenElement) {
+            // If the document is not in full screen mode
+            // make the video full screen
+            element.requestFullscreen();
+        } else {
+            // Otherwise exit the full screen
+            // document.exitFullscreen?.();
+        }
+    }
+
+    useEffect(function() {
+        toggleFullScreen()
+    }, [])
+
     return (
         <div className="grid h-full grid-rows-[auto_1fr]">
             <UserList contacts={contacts} />

@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useAppSelector } from "../hooks"
 import ImageCard from "./ImageCard"
 import { getLastFiveImages } from "../_lib/data-service";
+import Spinner from "../_ui/Spinner";
 
 // type lastUplodedImageType = {
 //     name:string;
@@ -20,7 +21,7 @@ const IMG_URL =
 function LastFive() {
     const {imageArray} = useAppSelector(store => store.galery)
     
-    const { data: lastFiveImages } = useQuery({
+    const { data: lastFiveImages, isLoading } = useQuery({
         queryKey: ["lastUploaded"],
         queryFn: ()=>getLastFiveImages(),
         refetchOnMount: true,
@@ -28,6 +29,8 @@ function LastFive() {
     
     console.log("teest",lastFiveImages);
     if(imageArray) return null
+
+    if(isLoading) return <Spinner />
 
     return (
         <div>

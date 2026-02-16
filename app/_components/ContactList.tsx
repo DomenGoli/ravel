@@ -41,7 +41,7 @@ function ContactList({ contacts }: UserListProps) {
                     ))}
                 </QueryClientProvider>
             </Provider>
-            <button onClick={toggleFullScreen}>testt</button>
+            {/* <button onClick={toggleFullScreen}>testt</button> */}
         </div>
     );
 }

@@ -1,8 +1,7 @@
 // TODOs
 
 // Tezka
-// TODO implementiraj full screen
-// TODO poravi viewporte
+// TODO 
 // TODO persistant logged in session
 // TODO database error handles
 // TODO login error handles
@@ -17,6 +16,7 @@
 
 
 // DONE
+// TODO implementiraj full screen
 // TODO ko kliknes nalozi naj bo nek UI odziv
 // TODO fix deleting picture
 // TODO bug: ko kliknes "home" se ne resetirajo active contactcardi (napacen redux call)

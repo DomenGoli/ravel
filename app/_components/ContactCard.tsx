@@ -5,6 +5,8 @@ import { useQuery } from "@tanstack/react-query"
 import { getUserImagesById } from "../_lib/actions"
 import { useAppDispatch, useAppSelector } from "../hooks"
 import { cacheId, cacheImages } from "../_lib/redux/galerySlice"
+import Spinner from "../_ui/Spinner"
+import SpinnerMini from "../_ui/SpinnerMini"
 
 
 type UserType = {
@@ -41,7 +43,7 @@ function ContactCard({user}: UserButtonProps) {
         // dispatch(saveImages(data))
     }
 
-    if(isLoading) return null;
+    if(isLoading) return <SpinnerMini />;
 
     return (
         <div className={`${cardStyle.base} ${user.id === userId ? cardStyle.active : cardStyle.inactive}`} onClick={handleClick}>
