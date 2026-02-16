@@ -35,7 +35,7 @@ function LastFive() {
     return (
         <div>
             <div className="overflow-scroll">
-                <p className="text-center">Zadnjih 5 nalozenih slik</p>
+                <p className="text-center">Zadnjih 5 naloženih slik</p>
                 <div className="flex flex-col items-center justify-center gap-2 overflow-scroll">
                     {lastFiveImages?.map((img, i) => (
                         <ImageCard

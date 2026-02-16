@@ -38,7 +38,7 @@ function ImageCard({
     // }, [downloadedFiles, imgName])
 
     return (
-        <div className="relative w-80 h-50">
+        <div className="relative w-screen h-60">
             {!isDownloaded && (
                 <button
                 onClick={handleDownload}
