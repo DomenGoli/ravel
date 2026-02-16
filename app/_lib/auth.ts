@@ -19,7 +19,7 @@ export const {handlers, signIn, signOut, auth} = NextAuth({
             },
             authorize: async(credentials): Promise<any> =>{
                 const username: string | unknown = credentials.username
-                const user = await getUserByUsername(username.toLowerCase())
+                const user = await getUserByUsername(username)
                 console.log("user:", user);
                 if(!user || !user.password) return null
 
