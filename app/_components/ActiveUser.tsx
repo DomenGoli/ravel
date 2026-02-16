@@ -1,8 +1,5 @@
-import { logout } from "../_lib/actions";
 import { auth } from "../_lib/auth";
 import { getUserByName } from "../_lib/data-service";
-import { HiOutlineLogout } from "react-icons/hi";
-import IconButton from "./IconButton";
 import Link from "next/link";
 
 async function ActiveUser() {

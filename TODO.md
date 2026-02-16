@@ -1,24 +1,29 @@
 // TODOs
 
-// TODO fix deleting picture
-// TODO make image list suspense
-// TODO na home pagu display last uploaded images
+// Tezka
+// TODO implementiraj full screen
+// TODO poravi viewporte
 // TODO persistant logged in session
 // TODO database error handles
 // TODO login error handles
-// TODO remove scrollbars
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
+// TODO delete picture server actions and invalidate
+// TODO make image list suspense
+// TODO v galerijah sortiraj vse slike po casu uploada
 // TODO
 
+// Lahka
+// TODO
+
+
+
 // DONE
+// TODO ko kliknes nalozi naj bo nek UI odziv
+// TODO fix deleting picture
+// TODO bug: ko kliknes "home" se ne resetirajo active contactcardi (napacen redux call)
+// TODO popravi velikost contactcard gumbov glede na dolzino imena
+// TODO remove scrollbars
+// TODO na home pagu display last uploaded images
+// TODO popravi overflow za contact image list. mylist dela pravilno
 // TODO oznaci kater slike si ze downloadu
 // TODO ravel ime na navbaru 
 // TODO active button in Footer

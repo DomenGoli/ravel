@@ -1,5 +1,5 @@
-import { login } from "../_lib/actions";
-import MenuButton from "./MenuButton";
+import { login } from "@/app/_lib/actions";
+import MenuButton from "@/app/_ui/MenuButton";
 
 function LoginForm() {
     return (

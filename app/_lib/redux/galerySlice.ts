@@ -2,13 +2,13 @@ import {createSlice} from "@reduxjs/toolkit"
 
 //Types
 type InitialStateType = {
-    imageArray: string[];
+    imageArray: string[] | null;
     userId: string;
     downloadedFiles: string
 }
 // Initial State
 const initialState: InitialStateType = {
-    imageArray: [],
+    imageArray: null,
     userId: "",
     downloadedFiles: "",
 }
@@ -27,10 +27,14 @@ const galerySlice = createSlice({
         markAsDownloaded(state, action) {
             // state.downloadedFiles.push(action.payload)
             state.downloadedFiles = action.payload
+        },
+        galeryToInitialState(state) {
+            state.imageArray = null
+            state.userId = ""
         }
     }
 })
 
 //export
 export default galerySlice.reducer
-export const {cacheImages, cacheId, markAsDownloaded} = galerySlice.actions
+export const {cacheImages, cacheId, markAsDownloaded, galeryToInitialState} = galerySlice.actions

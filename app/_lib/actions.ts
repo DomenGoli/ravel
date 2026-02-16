@@ -15,6 +15,8 @@ export async function login(credentials: FormData | Map<string, string>):Promise
     const username = credentials.get("username");
     const password = credentials.get("password");
 
+    if(!username) return
+
     await signIn("credentials", {
         username,
         password,

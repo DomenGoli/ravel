@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { uploadFile } from "../_lib/data-service";
-import MenuButton from "./MenuButton";
+import { uploadFile } from "@/app/_lib/data-service";
+import MenuButton from "@/app/_ui/MenuButton";
 
 type UploadImagesProps = {
     id: string;
@@ -10,6 +10,7 @@ type UploadImagesProps = {
 
 function UploadImages({ id }: UploadImagesProps) {
     const [files, setFiles] = useState<FileList | null>(null);
+    const [uploadMessage, setUploadMessage] = useState("")
 
     function onFileSelect(files: FileList | null): void {
         if (files) {
@@ -24,6 +25,8 @@ function UploadImages({ id }: UploadImagesProps) {
             uploadFile(files[i], id);
             console.log(files[i]);
         }
+        setFiles(null)
+        setUploadMessage("Slike so nalozene")
         // uploadFile(file, id)
         // console.log(files);
     }
@@ -39,7 +42,7 @@ function UploadImages({ id }: UploadImagesProps) {
                 Izberi slike
             </label>
             <input
-                className="flex items-center justify-center file:h-20 bg-(--button) file:text-[0rem] file:mr-3 h-20 rounded-[40] cursor-pointer bg-neutral-secondary-medium border border-default-medium text-black text-center text-heading text-md rounded-base focus:ring-brand focus:border-brand w-full shadow-xs placeholder:text-body"
+                className="flex items-center justify-center file:w-20 file:h-20 file:text-[0rem] file:mr-3 h-20 rounded-[40] cursor-pointer bg-(--strava-bar) border border-white text-heading text-md rounded-base focus:ring-brand focus:border-brand w-full shadow-xs placeholder:text-body "
                 id="multiple_files"
                 type="file"
                 multiple
@@ -51,6 +54,7 @@ function UploadImages({ id }: UploadImagesProps) {
             <MenuButton>
                 <button onClick={handleUpload}>Naloži</button>
             </MenuButton>
+                {uploadMessage && <p>{uploadMessage}</p>}
         </div>
     );
 }

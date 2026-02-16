@@ -18,24 +18,49 @@ export async function getImages(id: string): Promise<string[] | undefined> {
     return list;
 }
 
-export async function getLastFiveImages(): Promise<string[] | undefined> {
-    const {data: user1} = await supabase.storage.from("slike").list("1")
-    const {data: user2} = await supabase.storage.from("slike").list("2")
-    const {data: user3} = await supabase.storage.from("slike").list("2")
+// type lastUplodedImageType = {
+//     name: string;
+//     userId: string;
+//     // bucket_id: string;
+//     // owner: string;
+//     // id: string;
+//     // updated_at: string;
+//     created_at: string;
+//     // last_accessed_at: string;
+//     // metadata: Record<string, any>;
+//     // buckets: "";
+// };
+export async function getLastFiveImages() {
+    const { data: user1 } = await supabase.storage.from("slike").list("1");
+    const { data: user2 } = await supabase.storage.from("slike").list("2");
+    const { data: user3 } = await supabase.storage.from("slike").list("3");
 
-    const allImages = [user1, user2, user3].flat()
+    const user1withId = user1?.map((img) => {
+        return { name:img.name, created_at:img.created_at, userId: "1" };
+    });
+    const user2withId = user2?.map((img) => {
+        return { name:img.name, created_at:img.created_at, userId: "2" };
+    });
+    const user3withId = user3?.map((img) => {
+        return { name:img.name, created_at:img.created_at, userId: "3" };
+    });
 
-    const sortedImages = allImages.sort((a,b) => {
-        const dateA = new Date(a!.created_at).getTime()
-        const dateB = new Date(b!.created_at).getTime()
-        if(dateA < dateB) return -1
-        if(dateA > dateB) return 1
-        return 0
-    }).slice(1,6)
-    
-    const lastFiveList = sortedImages?.map(img=> img!.name)
+    const allImages = [user1withId, user2withId, user3withId].flat();
 
-    return lastFiveList
+    const sortedImages = allImages
+        .sort((a, b) => {
+            const dateA = new Date(a!.created_at).getTime();
+            const dateB = new Date(b!.created_at).getTime();
+            if (dateA > dateB) return -1;
+            if (dateA < dateB) return 1;
+            return 0;
+        })
+        .filter((img) => img?.name !== ".emptyFolderPlaceholder")
+        .slice(0, 5);
+
+    // const lastFiveList = sortedImages?.map(img=> {return {name: img!.name, userId:img?.bucket_id}})
+
+    return sortedImages;
 }
 
 type UserType = {
@@ -87,17 +112,18 @@ export async function uploadFile(file: File, id: string) {
     }
 }
 
-export async function deleteFile(imageName:string, id:string | undefined) {
+export async function deleteFile(imageName: string, id: string | undefined) {
     console.log("tagged", imageName, id);
-    const imagePath = `/${id}/${imageName}`;
+    const imagePath = `${id}/${imageName}`;
+    console.log(imagePath);
     const { data, error } = await supabase.storage
         .from("slike")
         .remove([imagePath]);
-    if(error) {
+    if (error) {
         console.log(error);
     }
     console.log(data);
-    return data
+    return data;
 }
 
 // export async function downloadFile(file:string) {

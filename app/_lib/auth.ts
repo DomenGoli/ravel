@@ -19,11 +19,12 @@ export const {handlers, signIn, signOut, auth} = NextAuth({
             },
             authorize: async(credentials): Promise<any> =>{
                 const username: string | unknown = credentials.username
-                const user = await getUserByUsername(username)
+                const user = await getUserByUsername(username.toLowerCase())
                 console.log("user:", user);
                 if(!user || !user.password) return null
 
-                if(credentials.password===user.password) return user
+                // if(credentials.password===user.password) return user // ko bomo imeli persistant sessions
+                return user
             }
         })
     ]

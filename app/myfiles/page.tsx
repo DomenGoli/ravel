@@ -1,6 +1,6 @@
-import Footer from "../_components/Footer";
+import Footer from "../_ui/Footer";
 import ImageCard from "../_components/ImageCard";
-import Navbar from "../_components/Navbar";
+import Navbar from "../_ui/Navbar";
 import { auth } from "../_lib/auth";
 import { getImages, getUserByName } from "../_lib/data-service";
 
@@ -13,10 +13,10 @@ async function page() {
     const imageArray = await getImages(userId);
 
     return (
-        <div className="grid h-screen grid-rows-[1fr_auto_1fr]">
+        <div className="grid h-screen grid-rows-[auto_1fr_auto]">
             <Navbar />
-            <div className="overflow-scroll">
-                <div className="flex flex-col items-center justify-center gap-2 overflow-scroll">
+            <div className="overflow-scroll no-scrollbar">
+                <div className="flex flex-col items-center justify-center gap-2">
                     {imageArray?.slice(1)?.map((img, i) => (
                         <ImageCard
                             mode={"edit"}

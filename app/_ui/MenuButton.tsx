@@ -13,7 +13,7 @@ type MenuButtonProps = {
 }
 function MenuButton({children}: MenuButtonProps) {
     return (
-        <div className="flex items-center justify-center border-2 border-(--strava-ozadje) text-sm rounded-[30px] w-25 h-10 bg-black cursor-pointer text-(--strava-button)">
+        <div className="flex items-center justify-center border-2 border-(--strava-ozadje) text-3xl rounded-[35px] w-38 h-18 bg-black cursor-pointer text-(--strava-button)">
             {children}
         </div>
     )

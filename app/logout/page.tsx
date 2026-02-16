@@ -1,15 +1,17 @@
-import Footer from "../_components/Footer";
-import Navbar from "../_components/Navbar";
+import Footer from "../_ui/Footer";
+import Navbar from "../_ui/Navbar";
 import { logout } from "../_lib/actions";
 import Link from "next/link";
-import MenuButton from "../_components/MenuButton";
+import MenuButton from "../_ui/MenuButton";
 
 function page() {
     return (
         <div className="grid h-screen grid-rows-[auto_1fr_auto]">
             <Navbar />
             <div className="flex  flex-col items-center justify-center gap-3">
-                <label className="text-stone-400">Se želite odjaviti?</label>
+                <label className="text-stone-400 text-2xl">
+                    Se želite odjaviti?
+                </label>
                 <form action={logout}>
                     <div className="flex gap-3">
                         <MenuButton>

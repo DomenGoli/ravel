@@ -5,9 +5,8 @@ import { useAppSelector } from "../hooks";
 const IMG_URL =
     "https://fkcolgozeqvaxilodttu.supabase.co/storage/v1/object/public/slike";
 
-
 function ImagesList() {
-    const {imageArray, userId} = useAppSelector(store => store.galery)
+    const { imageArray, userId } = useAppSelector((store) => store.galery);
     // queryClient.invalidateQueries({ queryKey: ['user-images'] })
     // const searchParams = useSearchParams();
     // const folder = searchParams?.get("id") || 1;
@@ -16,19 +15,26 @@ function ImagesList() {
     //     queryKey: ["user-images"],
     //     queryFn: ()=>fetchImages(userFolder),
     //     refetchOnMount: true,
-        
+
     // });
     // useEffect(function() {
     //     queryClient.invalidateQueries({ queryKey: ['user-images'], exact: true  })
 
     // }, [queryClient, userFolder])
     // const slike = folder ? getUserImagesById(folder) : []
+    if(!imageArray) return null
 
     return (
-        <div className="flex flex-col items-center justify-center gap-2">
-            {imageArray.slice(1)?.map((img, i) => (
-                <ImageCard key={i} imgName={img} imgURL={`${IMG_URL}/${userId}/${img}`} />
-            ))}
+        <div className="overflow-scroll">
+            <div className="flex flex-col items-center justify-center gap-2 ">
+                {imageArray.slice(1)?.map((img, i) => (
+                    <ImageCard
+                        key={i}
+                        imgName={img}
+                        imgURL={`${IMG_URL}/${userId}/${img}`}
+                    />
+                ))}
+            </div>
         </div>
     );
 }

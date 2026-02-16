@@ -4,7 +4,14 @@ import ImagesList from "./ImagesList";
 import UserList from "./ContactList";
 import { Provider } from "react-redux";
 import store from "../_lib/redux/store";
+import LastFive from "./LastFive";
 // import LastFive from "./LastFive";
+
+
+type lastUplodedImageType = {
+    name:string;
+    userId:string;
+}
 
 type UserType = {
     name: string;
@@ -13,7 +20,7 @@ type UserType = {
 
 type GaleryProps = {
     contacts: UserType[];
-    // lastFiveImages: string[] | undefined
+    lastFiveImages?: lastUplodedImageType[] | undefined
 };
 
 function Galery({ contacts }: GaleryProps) {
@@ -25,14 +32,13 @@ function Galery({ contacts }: GaleryProps) {
 
     // console.log(slike);
     return (
-        <div className="grid grid-rows-[auto_1fr]">
+        <div className="grid h-full grid-rows-[auto_1fr]">
             <UserList contacts={contacts} />
-            <div>
-                
+            <div className="overflow-scroll no-scrollbar">
                 <QueryClientProvider client={queryClient}>
                     <Provider store={store}>
                         <ImagesList />
-                        {/* <LastFive lastFiveImages={lastFiveImages}/> */}
+                        <LastFive />
                     </Provider>
                 </QueryClientProvider>
             </div>
