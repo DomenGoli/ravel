@@ -17,7 +17,7 @@ function RavelLogoButton() {
     }
     return (
         <div>
-            <p onClick={toggleFullScreen} className="text-stone-600">Ravel</p>
+            <p onClick={toggleFullScreen} className="text-stone-600">imGravel</p>
         </div>
     )
 }

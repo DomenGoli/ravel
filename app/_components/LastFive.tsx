@@ -26,16 +26,15 @@ function LastFive() {
         refetchOnMount: true,
     });
     
-    console.log("teest",lastFiveImages);
     if(imageArray) return null
 
     if(isLoading) return <Spinner />
 
     return (
         <div>
-            <div className="overflow-scroll">
+            <div className="overflow-scroll no-scrollbar">
                 <p className="text-center">Zadnjih 5 naloženih slik</p>
-                <div className="flex flex-col items-center justify-center gap-1 overflow-scroll">
+                <div className="flex flex-col items-center justify-center gap-1 overflow-scroll no-scrollbar">
                     {lastFiveImages?.map((img, i) => (
                         <ImageCard
                             key={i}

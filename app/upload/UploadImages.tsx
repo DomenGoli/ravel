@@ -34,7 +34,6 @@ function UploadImages({ id }: UploadImagesProps) {
     return (
         <div className="flex flex-col items-center gap-20 mt-20">
             <div className="flex flex-col items-center">
-
             <label
                 className="block mb-2.5 text-lg font-medium text-heading"
                 htmlFor="multiple_files"
@@ -54,6 +53,7 @@ function UploadImages({ id }: UploadImagesProps) {
             <MenuButton>
                 <button onClick={handleUpload}>Naloži</button>
             </MenuButton>
+                <p>Slike se hranijo 48ur</p>
                 {uploadMessage && <p>{uploadMessage}</p>}
         </div>
     );

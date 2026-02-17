@@ -5,6 +5,7 @@ import UserList from "./ContactList";
 import { Provider } from "react-redux";
 import store from "../_lib/redux/store";
 import LastFive from "./LastFive";
+import { useAppSelector } from "../hooks";
 // import LastFive from "./LastFive";
 
 
@@ -26,6 +27,7 @@ type GaleryProps = {
 function Galery({ contacts }: GaleryProps) {
     // const slike = await getUserImagesById(1);
     const queryClient = new QueryClient();
+    // const {imageArray} = useAppSelector(store => store.galery)
     // const searchParams = useSearchParams();
     // const userFolder = searchParams?.get("id") || "1";
     // queryClient.invalidateQueries({ queryKey: ['user-images'] })

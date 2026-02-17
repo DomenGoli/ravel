@@ -3,10 +3,10 @@ import MenuButton from "@/app/_ui/MenuButton";
 
 function LoginForm() {
     return (
-        <div className="flex flex-col justify-center items-center gap-5">
+        <div className="flex flex-col justify-center items-center gap-14">
             <div className="flex flex-col text-center">
-                <label className="absolute left-11 rotate-270 top-50 text-stone-400 text-lg">imG</label>
-                <label className="text-8xl text-stone-400">Ravel</label>
+                {/* <label className="absolute left-11 rotate-270 top-50 text-stone-400 text-lg">imG</label> */}
+                <label className="text-7xl text-stone-400">imGravel</label>
             </div>
             <form action={login}>
                 <div className="flex flex-col gap-10 items-center">

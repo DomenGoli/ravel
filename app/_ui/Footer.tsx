@@ -9,7 +9,7 @@ const footerRouts = {
 };
 
 const linkStyle = {
-    base: "flex items-center justify-center border-2 border-(--strava-ozadje) text-sm rounded-[30px] w-25 h-10 cursor-pointer text-(--strava-button)",
+    base: "flex items-center justify-center border-2 border-(--strava-ozadje) active:bg-white duration-500 text-sm rounded-[30px] w-25 h-10 cursor-pointer text-(--strava-button)",
     inactive: "bg-black",
     active: "bg-white",
 };
@@ -23,7 +23,7 @@ function Footer() {
                 href="/upload"
                 className={`${linkStyle.base} ${pathname === footerRouts.upload ? linkStyle.active : linkStyle.inactive}`}
             >
-                Nalozi slike
+                Naloži slike
             </Link>
 
             <Link

@@ -16,7 +16,7 @@ function HomeButton() {
     return (
         <div className="">
             <IconButton>
-                <Link onClick={handleClick} href="/">
+                <Link onClick={handleClick} href="/" className="">
                     <IoHome color="#fc5200" size={40} />
                 </Link>
             </IconButton>

@@ -9,7 +9,7 @@ async function MyGalery() {
     const imageArray = await getImages(userId);
 
     return (
-        <div>
+        <div className="h-dvh">
             <MyList imageArray={imageArray} userId={userId}/>   
         </div>
     );

@@ -22,9 +22,14 @@ function ImagesList() {
     // }, [queryClient, userFolder])
     // const slike = folder ? getUserImagesById(folder) : []
     if(!imageArray) return null
+    if(imageArray?.length <= 1) return (
+        <div className="flex items-center justify-center h-full">
+            <p className="text-lg">Odlagališče je prazno</p>
+        </div>
+    )
 
     return (
-        <div className="overflow-scroll">
+        <div className="overflow-scroll no-scrollbar">
             <div className="flex flex-col items-center justify-center gap-1">
                 {/* <Suspense fallback={<Spinner />}> */}
                 {imageArray.slice(1)?.map((img, i) => (
