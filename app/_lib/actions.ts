@@ -1,6 +1,7 @@
 "use server"
 import { signIn, signOut } from "@/app/_lib/auth";
 import { supabase } from "./supabase";
+import { revalidatePath } from "next/cache";
 
 export async function getUserImagesById(id:string): Promise<string[] | undefined> {
     // For testing db data long loading time
@@ -28,4 +29,16 @@ export async function login(credentials: FormData | Map<string, string>):Promise
 
 export async function logout():Promise<void> {
     await signOut({ redirectTo: "/auth/login", redirect: true });
+}
+
+export async function deleteFileSA(imageName: string, id: string | undefined) {
+    const imagePath = `${id}/${imageName}`;
+    const { data, error } = await supabase.storage
+        .from("slike")
+        .remove([imagePath]);
+    if (error) {
+        console.log(error);
+    }
+    revalidatePath("myfiles");
+    return data;
 }

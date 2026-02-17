@@ -26,7 +26,7 @@ function UploadImages({ id }: UploadImagesProps) {
             console.log(files[i]);
         }
         setFiles(null)
-        setUploadMessage("Slike so nalozene")
+        setUploadMessage("Slike se nalagajo...")
         // uploadFile(file, id)
         // console.log(files);
     }

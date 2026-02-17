@@ -114,19 +114,19 @@ export async function uploadFile(file: File, id: string) {
     }
 }
 
-export async function deleteFile(imageName: string, id: string | undefined) {
-    console.log("tagged", imageName, id);
-    const imagePath = `${id}/${imageName}`;
-    console.log(imagePath);
-    const { data, error } = await supabase.storage
-        .from("slike")
-        .remove([imagePath]);
-    if (error) {
-        console.log(error);
-    }
-    console.log(data);
-    return data;
-}
+// export async function deleteFile(imageName: string, id: string | undefined) {
+//     console.log("tagged", imageName, id);
+//     const imagePath = `${id}/${imageName}`;
+//     console.log(imagePath);
+//     const { data, error } = await supabase.storage
+//         .from("slike")
+//         .remove([imagePath]);
+//     if (error) {
+//         console.log(error);
+//     }
+//     console.log(data);
+//     return data;
+// }
 
 // export async function downloadFile(file:string) {
 //     const { data, error } = await supabase.storage

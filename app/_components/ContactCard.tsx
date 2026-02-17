@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query"
 import { getUserImagesById } from "../_lib/actions"
 import { useAppDispatch, useAppSelector } from "../hooks"
 import { cacheId, cacheImages } from "../_lib/redux/galerySlice"
-import Spinner from "../_ui/Spinner"
 import SpinnerMini from "../_ui/SpinnerMini"
 
 

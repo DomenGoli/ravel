@@ -15,8 +15,7 @@ import Spinner from "../_ui/Spinner";
 //     lastFiveImages: lastUplodedImageType[] | undefined
 // }
 
-const IMG_URL =
-    "https://fkcolgozeqvaxilodttu.supabase.co/storage/v1/object/public/slike";
+
 
 function LastFive() {
     const {imageArray} = useAppSelector(store => store.galery)
@@ -36,12 +35,12 @@ function LastFive() {
         <div>
             <div className="overflow-scroll">
                 <p className="text-center">Zadnjih 5 naloženih slik</p>
-                <div className="flex flex-col items-center justify-center gap-2 overflow-scroll">
+                <div className="flex flex-col items-center justify-center gap-1 overflow-scroll">
                     {lastFiveImages?.map((img, i) => (
                         <ImageCard
                             key={i}
                             imgName={img!.name}
-                            imgURL={`${IMG_URL}/${img!.userId}/${img!.name}`}
+                            imgURL={`${process.env.NEXT_PUBLIC_SUPABASE_BUCKET}/${img!.userId}/${img!.name}`}
                         />
                     ))}
                 </div>

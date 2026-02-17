@@ -1,14 +1,12 @@
 // TODOs
 
 // Tezka
-// TODO 
 // TODO persistant logged in session
 // TODO database error handles
 // TODO login error handles
-// TODO delete picture server actions and invalidate
-// TODO make image list suspense
 // TODO v galerijah sortiraj vse slike po casu uploada
-// TODO
+// TODO lastFive spremeni v servercomponent data fetching in suspense
+// TODO 
 
 // Lahka
 // TODO
@@ -16,6 +14,8 @@
 
 
 // DONE
+// TODO delete picture server actions and invalidate
+// TODO make image list suspense
 // TODO implementiraj full screen
 // TODO ko kliknes nalozi naj bo nek UI odziv
 // TODO fix deleting picture

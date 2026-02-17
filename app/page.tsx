@@ -16,11 +16,8 @@ export default async function Home() {
 
     // const lastFiveImages = await getLastFiveImages();
     // console.log("BBBBBBBBBBBBBBBBBBBBBBBBBB:",images);
-    /**
-     * Toggle fullscreen function who work with webkit and firefox.
-     * @function toggleFullscreen
-     * @param {Object} event
-     */
+    
+    
     // function toggleFullscreen(event) {
     //     let element = document.body;
 
@@ -54,7 +51,7 @@ export default async function Home() {
     
 
     return (
-        <div className="grid h-screen grid-rows-[auto_1fr_auto]">
+        <div className="grid h-dvh grid-rows-[auto_1fr_auto]">
             <Navbar />
             <div className="overflow-scroll no-scrollbar">
                 <Galery contacts={contacts} />

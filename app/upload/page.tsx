@@ -1,6 +1,6 @@
 import Footer from "../_ui/Footer";
 import Navbar from "../_ui/Navbar";
-import UploadImages from "./_components/UploadImages";
+import UploadImages from "./UploadImages";
 import { auth } from "../_lib/auth";
 import { getUserByName } from "../_lib/data-service";
 

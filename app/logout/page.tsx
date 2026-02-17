@@ -6,7 +6,7 @@ import MenuButton from "../_ui/MenuButton";
 
 function page() {
     return (
-        <div className="grid h-screen grid-rows-[auto_1fr_auto]">
+        <div className="grid h-dvh grid-rows-[auto_1fr_auto]">
             <Navbar />
             <div className="flex  flex-col items-center justify-center gap-3">
                 <label className="text-stone-400 text-2xl">

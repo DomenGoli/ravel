@@ -6,14 +6,14 @@ function RavelLogoButton() {
         // if (event instanceof HTMLElement) {
         //     element = event;
         // }
-        // if (!document.fullscreenElement) {
-        //     // If the document is not in full screen mode
-        //     // make the video full screen
-        //     element.requestFullscreen();
-        // } else {
-        //     // Otherwise exit the full screen
-        // }
-        document.exitFullscreen?.();
+        if (!document.fullscreenElement) {
+            // If the document is not in full screen mode
+            // make the video full screen
+            element.requestFullscreen();
+        } else {
+            // Otherwise exit the full screen
+            document.exitFullscreen?.();
+        }
     }
     return (
         <div>

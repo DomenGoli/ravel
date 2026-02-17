@@ -16,21 +16,21 @@ type UserListProps = {
 function ContactList({ contacts }: UserListProps) {
     const queryClient = new QueryClient();
 
-    function toggleFullScreen() {
-        const element = document.body;
+    // function toggleFullScreen() {
+    //     const element = document.body;
 
-        // if (event instanceof HTMLElement) {
-        //     element = event;
-        // }
-        if (!document.fullscreenElement) {
-            // If the document is not in full screen mode
-            // make the video full screen
-            element.requestFullscreen();
-        } else {
-            // Otherwise exit the full screen
-            document.exitFullscreen?.();
-        }
-    }
+    //     // if (event instanceof HTMLElement) {
+    //     //     element = event;
+    //     // }
+    //     if (!document.fullscreenElement) {
+    //         // If the document is not in full screen mode
+    //         // make the video full screen
+    //         element.requestFullscreen();
+    //     } else {
+    //         // Otherwise exit the full screen
+    //         document.exitFullscreen?.();
+    //     }
+    // }
 
     return (
         <div className="flex items-center justify-center w-screen h-15 gap-1">
