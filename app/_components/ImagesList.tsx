@@ -24,7 +24,7 @@ function ImagesList() {
     if(!imageArray) return null
     if(imageArray?.length <= 1) return (
         <div className="flex items-center justify-center h-full">
-            <p className="text-lg">Odlagališče je prazno</p>
+            <p className="text-lg">Brez slik</p>
         </div>
     )
 

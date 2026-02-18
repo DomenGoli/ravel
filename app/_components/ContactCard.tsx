@@ -31,7 +31,7 @@ function ContactCard({user}: UserButtonProps) {
     });
 
     const cardStyle ={
-        base: "flex items-center justify-center pb-1 font-bold border-2 rounded-[25px] border-black ml-0.5 pl-3 pr-3 h-9 cursor-pointer",
+        base: "flex items-center justify-center font-bold border-2 rounded-[25px] border-black ml-0.5 pl-3 pr-3 h-9 cursor-pointer",
         inactive: "bg-(--strava-bar) text-stone-400",
         active: "bg-stone-400 text-(--strava-bar)"
     }
