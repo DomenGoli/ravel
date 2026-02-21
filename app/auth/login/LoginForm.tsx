@@ -1,25 +1,26 @@
 "use client"
 import { login } from "@/app/_lib/actions";
 import MenuButton from "@/app/_ui/MenuButton";
+// import { SubmitEventHandler } from "react";
 
 function LoginForm() {
     // const [cookie, setCookie] = useCookies()
     
 
 
-    async function handleSubmit(e){
-        e.preventDefault()
-        const formData = new FormData(e.target)
-        const response = await login(formData)
-        console.log("dsfsdfsdfsdfsdf");
-        console.log("response:",response);
+    // async function handleSubmit(e:SubmitEventHandler<HTMLFormElement>){
+    //     e.preventDefault()
+    //     const formData = new FormData(e.target)
+    //     const response = await login(formData)
+    //     console.log("dsfsdfsdfsdfsdf");
+    //     console.log("response:",response);
 
-    //     setCookie("user", JSON.stringify(response), {
-    //     path: "/",
-    //     maxAge: 3600, // Expires after 1hr
-    //     sameSite: true,
-    //   })
-    }
+    // //     setCookie("user", JSON.stringify(response), {
+    // //     path: "/",
+    // //     maxAge: 3600, // Expires after 1hr
+    // //     sameSite: true,
+    // //   })
+    // }
 
     return (
         <div className="flex flex-col justify-center items-center gap-14">
@@ -27,7 +28,7 @@ function LoginForm() {
                 {/* <label className="absolute left-11 rotate-270 top-50 text-stone-400 text-lg">imG</label> */}
                 <label className="text-7xl text-stone-400">imGravel</label>
             </div>
-            <form onSubmit={handleSubmit} id="form">
+            <form action={login} id="form">
                 <div className="flex flex-col gap-10 items-center">
                     <div className="flex flex-col items-center gap-4">
                         <div className="flex flex-col items-center gap-2">
