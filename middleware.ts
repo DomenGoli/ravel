@@ -5,7 +5,7 @@ import { apiAuthPrefix } from "./routes";
 export default auth((req) => {
     const { nextUrl } = req;
     const isLoggedIn = !!req.auth;
-    // const isLoggedIn = true;
+    // const isLoggedIn = false;
     console.log("ROUTE:", req.nextUrl.pathname);
     console.log("IS LOGGED IN:", isLoggedIn);
 
@@ -20,7 +20,7 @@ export default auth((req) => {
     // }
 
     if(isLoginPage && isLoggedIn) {
-        return Response.redirect(new URL("/auth/login", nextUrl));
+        return Response.redirect(new URL("/", nextUrl));
     }
     
     if (isLoginPage && !isLoggedIn) {

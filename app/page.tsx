@@ -12,7 +12,8 @@ export default async function Home() {
     const users = (await getUsers()) || [];
     const session = await auth();
     const { id } = await getUserByName(session?.user?.name);
-    const contacts = users.filter((user) => user.id !== id);
+    const contacts = users.filter((user) => user.id !== id || user.id === "4");
+    console.log(session);
 
     // const lastFiveImages = await getLastFiveImages();
     // console.log("BBBBBBBBBBBBBBBBBBBBBBBBBB:",images);

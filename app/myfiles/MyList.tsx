@@ -25,7 +25,7 @@ function MyList({ imageArray, userId }: MyListProps) {
 
     return (
         <div className="flex flex-col gap-1">
-            {optimisticImageArray?.slice(1)?.map((img) => (
+            {optimisticImageArray?.map((img) => (
                 <ImageCard
                     mode={"edit"}
                     key={img}

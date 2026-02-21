@@ -14,17 +14,19 @@ export async function getUserImagesById(id:string): Promise<string[] | undefined
     return list;
 }
 
-export async function login(credentials: FormData | Map<string, string>):Promise<void> {
+export async function login(credentials: FormData | Map<string, string>) {
     const username = credentials.get("username");
     const password = credentials.get("password");
 
     if(!username) return
 
-    await signIn("credentials", {
+    const res = await signIn("credentials", {
         username,
         password,
         redirectTo: "/",
     });
+    console.log("response:",res);
+    return res
 }
 
 export async function logout():Promise<void> {

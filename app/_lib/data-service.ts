@@ -15,7 +15,17 @@ export async function getImages(id: string): Promise<string[] | undefined> {
     const { data, error } = await supabase.storage.from("slike").list(id);
     if (error) {
     }
-    const list = data?.map((img) => img.name);
+    // console.log(data?.sort((a,b) => a.created_at - b.created_at));
+    const list = data
+        ?.slice(1) // prvi elelment je .placeholder za supabase prazn file
+        ?.sort((a, b) => {
+            const dateA = new Date(a!.created_at).getTime();
+            const dateB = new Date(b!.created_at).getTime();
+            if (dateA > dateB) return 1;
+            if (dateA < dateB) return -1;
+            return 0;
+        })
+        .map((img) => img.name);
 
     return list;
 }
@@ -38,13 +48,13 @@ export async function getLastFiveImages() {
     const { data: user3 } = await supabase.storage.from("slike").list("3");
 
     const user1withId = user1?.map((img) => {
-        return { name:img.name, created_at:img.created_at, userId: "1" };
+        return { name: img.name, created_at: img.created_at, userId: "1" };
     });
     const user2withId = user2?.map((img) => {
-        return { name:img.name, created_at:img.created_at, userId: "2" };
+        return { name: img.name, created_at: img.created_at, userId: "2" };
     });
     const user3withId = user3?.map((img) => {
-        return { name:img.name, created_at:img.created_at, userId: "3" };
+        return { name: img.name, created_at: img.created_at, userId: "3" };
     });
 
     const allImages = [user1withId, user2withId, user3withId].flat();

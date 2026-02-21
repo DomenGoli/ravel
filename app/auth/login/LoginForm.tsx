@@ -1,14 +1,34 @@
+"use client"
 import { login } from "@/app/_lib/actions";
 import MenuButton from "@/app/_ui/MenuButton";
+import {useCookies} from "react-cookie"
 
 function LoginForm() {
+    // const [cookie, setCookie] = useCookies()
+    
+
+
+    async function handleSubmit(e){
+        e.preventDefault()
+        const formData = new FormData(e.target)
+        const response = await login(formData)
+        console.log("dsfsdfsdfsdfsdf");
+        console.log("response:",response);
+
+    //     setCookie("user", JSON.stringify(response), {
+    //     path: "/",
+    //     maxAge: 3600, // Expires after 1hr
+    //     sameSite: true,
+    //   })
+    }
+
     return (
         <div className="flex flex-col justify-center items-center gap-14">
             <div className="flex flex-col text-center">
                 {/* <label className="absolute left-11 rotate-270 top-50 text-stone-400 text-lg">imG</label> */}
                 <label className="text-7xl text-stone-400">imGravel</label>
             </div>
-            <form action={login}>
+            <form onSubmit={handleSubmit} id="form">
                 <div className="flex flex-col gap-10 items-center">
                     <div className="flex flex-col items-center gap-4">
                         <div className="flex flex-col items-center gap-2">
@@ -33,7 +53,7 @@ function LoginForm() {
                         </div>
                     </div>
                     <MenuButton>
-                        <button className="cursor-pointer" type="submit">
+                        <button className="cursor-pointer active:bg-white duration-700" type="submit">
                             Prijavi
                         </button>
                     </MenuButton>
