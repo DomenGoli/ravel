@@ -30,10 +30,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     ],
     callbacks: {
         async session({ token, session }) { // za extendanje auth userja, returan kot session=auth()
-            if(token.sub && session.user) {
-                session.user.id = token.sub || 1
-                // session.max
-            }
+            // if(token.sub && session.user) {
+            //     session.user.id = token.sub || 1
+            //     // session.max
+            // }
             return session;
         },
         async jwt({ token }) {

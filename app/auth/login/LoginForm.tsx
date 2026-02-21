@@ -1,7 +1,6 @@
 "use client"
 import { login } from "@/app/_lib/actions";
 import MenuButton from "@/app/_ui/MenuButton";
-import {useCookies} from "react-cookie"
 
 function LoginForm() {
     // const [cookie, setCookie] = useCookies()
