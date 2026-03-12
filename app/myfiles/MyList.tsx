@@ -23,6 +23,12 @@ function MyList({ imageArray, userId }: MyListProps) {
         await deleteFileSA(imgName, userId);
     }
 
+    if(imageArray?.length === 0) return (
+        <div className="flex items-center justify-center h-full">
+            <p className="text-lg">Brez slik</p>
+        </div>
+    )
+
     return (
         <div className="flex flex-col gap-1">
             {optimisticImageArray?.map((img) => (

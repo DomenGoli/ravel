@@ -10,6 +10,7 @@ type MenuButtonProps = {
     children: React.ReactNode,
     active?: boolean,
     page?: string,
+    
 }
 function MenuButton({children}: MenuButtonProps) {
     return (

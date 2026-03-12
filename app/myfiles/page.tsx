@@ -12,7 +12,7 @@ async function page() {
         <div className="grid h-dvh grid-rows-[auto_1fr_auto]">
             <Navbar />
             <div className="overflow-scroll no-scrollbar">
-                <div className="flex flex-col items-center justify-center gap-2">
+                <div className="flex flex-col items-center justify-center gap-2 h-full">
                     <Suspense fallback={<Spinner />}>
                     <MyGalery />
                     </Suspense>

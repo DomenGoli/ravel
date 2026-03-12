@@ -116,7 +116,12 @@ export async function uploadFile(file: File, id: string) {
     const imagePath = `/${id}/${imageName}`;
     const { data, error } = await supabase.storage
         .from("slike")
-        .upload(imagePath, file);
+        .upload(imagePath, file, {
+            cacheControl: "3600",
+            upsert: false,
+            duplex: "half",
+            contentType: "image/png"
+        });
     if (error) {
         // Handle error
     } else {

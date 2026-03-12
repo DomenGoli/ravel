@@ -44,3 +44,22 @@ export async function deleteFileSA(imageName: string, id: string | undefined) {
     revalidatePath("myfiles");
     return data;
 }
+
+
+export async function uploadFileAction(file: File, id: string) {
+    const imageName = file.name;
+    const imagePath = `/${id}/${imageName}`;
+    const { data, error } = await supabase.storage
+        .from("slike")
+        .upload(imagePath, file, {
+            cacheControl: "3600",
+            upsert: false,
+            duplex: "half",
+            contentType: "image/png"
+        });
+    if (error) {
+        // Handle error
+    } else {
+        return data;
+    }
+}

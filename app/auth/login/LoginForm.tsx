@@ -1,12 +1,13 @@
-"use client"
+"use client";
 import { login } from "@/app/_lib/actions";
 import MenuButton from "@/app/_ui/MenuButton";
+import Guest from "./Guest";
+import { useFormStatus } from "react-dom";
+import SpinnerMini from "@/app/_ui/SpinnerMini";
 // import { SubmitEventHandler } from "react";
 
 function LoginForm() {
     // const [cookie, setCookie] = useCookies()
-    
-
 
     // async function handleSubmit(e:SubmitEventHandler<HTMLFormElement>){
     //     e.preventDefault()
@@ -52,11 +53,16 @@ function LoginForm() {
                             ></input>
                         </div>
                     </div>
-                    <MenuButton>
-                        <button className="cursor-pointer active:bg-white duration-700" type="submit">
+                    {/* <MenuButton>
+                        <button
+                            // className="cursor-pointer active:bg-white duration-700"
+                            type="submit"
+                        >
                             Prijavi
                         </button>
-                    </MenuButton>
+                    </MenuButton> */}
+                    <FormButton />
+                    <Guest />
 
                     {/* <Button type="submit" variation="form">
                         Login
@@ -66,6 +72,19 @@ function LoginForm() {
             </form>
             {/* <Guest /> */}
         </div>
+    );
+}
+
+function FormButton() {
+    const { pending } = useFormStatus();
+
+    return (
+        <button
+            className="flex items-center justify-center border-2 border-(--strava-ozadje) text-3xl rounded-[35px] w-38 h-18 bg-black cursor-pointer text-(--strava-button) active:bg-white duration-700"
+            type="submit"
+        >
+            {!pending ? "Prijavi" : <SpinnerMini />}
+        </button>
     );
 }
 
