@@ -1,3 +1,4 @@
+"use client"
 import Footer from "../_ui/Footer";
 import Navbar from "../_ui/Navbar";
 import { logout } from "../_lib/actions";
