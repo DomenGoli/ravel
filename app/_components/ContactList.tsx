@@ -33,7 +33,7 @@ function ContactList({ contacts }: UserListProps) {
     // }
 
     return (
-        <div className="flex items-center justify-center w-screen h-15 gap-1">
+        <div className="flex items-center justify-center w-full h-15 gap-1">
             <Provider store={store}>
                 <QueryClientProvider client={queryClient}>
                     {contacts.map((user) => (

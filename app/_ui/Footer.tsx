@@ -18,7 +18,7 @@ function Footer() {
     const pathname = usePathname();
 
     return (
-        <div className="flex items-center justify-between w-screen h-10 p-7 bg-(--strava-bar)">
+        <div className="flex items-center justify-between w-full h-10 p-7 bg-(--strava-bar)">
             <Link
                 href="/upload"
                 className={`${linkStyle.base} ${pathname === footerRouts.upload ? linkStyle.active : linkStyle.inactive}`}

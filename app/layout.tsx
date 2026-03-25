@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
 //   subsets: ["latin"],
@@ -14,24 +13,22 @@ import "./globals.css";
 // });
 
 export const metadata: Metadata = {
-  title: "Ravel",
-  description: "Image sharing app",
+    title: "Ravel",
+    description: "Image sharing app",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body
-        className="bg-(--strava-ozadje) antialiased items-center gap-4 text-stone-400"
-      >
-        {/* <Navbar /> */}
-        {children}
-        {/* <Footer /> */}
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body className="flex justify-center bg-(--strava-ozadje) w-screen antialiased items-center gap-4 text-stone-400">
+                {/* <Navbar /> */}
+                <div className="md:w-150">{children}</div>
+                {/* <Footer /> */}
+            </body>
+        </html>
+    );
 }
