@@ -26,7 +26,7 @@ export default function RootLayout({
         <html lang="en">
             <body className="flex justify-center bg-(--strava-ozadje) w-screen antialiased items-center gap-4 text-stone-400">
                 {/* <Navbar /> */}
-                <div className="md:w-150">{children}</div>
+                <div className="w-screen">{children}</div>
                 {/* <Footer /> */}
             </body>
         </html>

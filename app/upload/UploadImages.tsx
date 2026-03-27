@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { uploadFile } from "@/app/_lib/data-service";
+// import { uploadFile } from "@/app/_lib/data-service";
 import MenuButton from "@/app/_ui/MenuButton";
-import ProgressBar from "../_components/ProgressBar";
+// import ProgressBar from "../_components/ProgressBar";
 import SpinnerMini from "../_ui/SpinnerMini";
 import { uploadFileAction } from "../_lib/actions";
 
@@ -11,10 +11,13 @@ type UploadImagesProps = {
     id: string;
 };
 
+type UploadStatus = "idle" | "uploading" | "success" | "error";
+
 function UploadImages({ id }: UploadImagesProps) {
     const [files, setFiles] = useState<FileList | null>(null);
-    const [uploadMessage, setUploadMessage] = useState("");
-    const [isPending, startTransition] = useTransition();
+    // const [uploadMessage, setUploadMessage] = useState("");
+    // const [isPending, startTransition] = useTransition();
+    const [status, setStatus] = useState<UploadStatus>("idle");
 
     function onFileSelect(files: FileList | null): void {
         if (files) {
@@ -22,15 +25,32 @@ function UploadImages({ id }: UploadImagesProps) {
         }
     }
 
-    function handleUpload(): void {
+    // function handleUpload(): void {
+    //     if (!files || files.length < 1) return;
+
+    //     uploadFileAction(files[0], id);
+    //     // startTransition(() => {
+    //     //     for (let i = 0; i < files.length; i++) {
+    //     //         uploadFileActionTUS(files[i], id);
+    //     //     }
+    //     //     setUploadMessage("Naloženo");
+    //     // });
+    //     setFiles(null);
+    // }
+
+    async function handleUpload() {
         if (!files || files.length < 1) return;
-        startTransition(() => {
+
+        setStatus("uploading");
+
+        try {
             for (let i = 0; i < files.length; i++) {
-                uploadFileAction(files[i], id);
+                await uploadFileAction(files[i], id);
             }
-            setUploadMessage("Naloženo");
-        });
-        setFiles(null);
+            setStatus("success")
+        } catch {
+            setStatus("error")
+        }
     }
 
     return (
@@ -51,7 +71,18 @@ function UploadImages({ id }: UploadImagesProps) {
                     onChange={(e) => onFileSelect(e.target.files)}
                 />
             </div>
-            <div className="text-center">
+
+            {files && (
+                <MenuButton>
+                    <button onClick={handleUpload}>
+                        {status === "uploading" ? <SpinnerMini /> : "Naloži"}
+                    </button>
+                </MenuButton>
+            )}
+            {status === "uploading" && <p>Nalagamo slike...</p>}
+            {status === "success" && <p>Slike so naložene.</p>}
+
+            {/* <div className="text-center">
                 <MenuButton>
                     <button onClick={handleUpload}>
                         {!isPending ? "Naloži" : <SpinnerMini />}
@@ -59,7 +90,7 @@ function UploadImages({ id }: UploadImagesProps) {
                 </MenuButton>
                 {isPending && <p>Nalagamo slike...</p>}
                 {uploadMessage && <p>{uploadMessage}</p>}
-            </div>
+            </div> */}
             {/* <p>Slike se hranijo 48ur</p> */}
         </div>
     );
