@@ -66,7 +66,7 @@ export async function uploadFileAction(file: File, id: string) {
 }
 const projectId = "fkcolgozeqvaxilodttu"
 
-export async function uploadFileActionTUS(file, id: string):Promise<void> {
+export async function uploadFileActionTUS(file: File, id: string):Promise<void> {
     const fileName = file.name;
     return new Promise((resolve, reject) => {
         var upload = new tus.Upload(file, {
