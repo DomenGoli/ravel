@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState } from "react";
 // import { uploadFile } from "@/app/_lib/data-service";
 import MenuButton from "@/app/_ui/MenuButton";
 // import ProgressBar from "../_components/ProgressBar";
 import SpinnerMini from "../_ui/SpinnerMini";
-import { uploadFileAction } from "../_lib/actions";
+// import { uploadFileAction } from "../_lib/actions";
+import { uploadFileDS } from "../_lib/data-service";
 
 type UploadImagesProps = {
     id: string;
@@ -45,7 +46,7 @@ function UploadImages({ id }: UploadImagesProps) {
 
         try {
             for (let i = 0; i < files.length; i++) {
-                await uploadFileAction(files[i], id);
+                await uploadFileDS(files[i], id);
             }
             setStatus("success")
         } catch {

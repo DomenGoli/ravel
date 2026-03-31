@@ -111,7 +111,7 @@ export async function getUserByName(
     }
     return data;
 }
-export async function uploadFile(file: File, id: string) {
+export async function uploadFileDS(file: File, id: string) {
     const imageName = file.name;
     const imagePath = `/${id}/${imageName}`;
     const { data, error } = await supabase.storage
