@@ -7,7 +7,7 @@ import * as tus from 'tus-js-client'
 export async function getUserImagesById(id:string): Promise<string[] | undefined> {
     // For testing db data long loading time
     // await new Promise((res) => setTimeout(res, 5000));
-    const { data, error } = await supabase.storage.from("slike").list(id);
+    const { data, error } = await supabase.storage.from("tus").list("");
     const list = data?.map(img => img.name)
     if(error) {
         //Handle error

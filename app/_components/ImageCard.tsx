@@ -6,14 +6,13 @@ import { TiDelete } from "react-icons/ti";
 import { FaCheckCircle } from "react-icons/fa";
 import { useState } from "react";
 
-
 type ImageCardType = {
     imgURL: string;
     imgName: string;
     mode?: string;
     userId?: string;
-    onDelete?: (arg0:string, arg1:string | undefined)=>void
-}
+    onDelete?: (arg0: string, arg1: string | undefined) => void;
+};
 function ImageCard({
     imgURL,
     imgName,
@@ -22,19 +21,17 @@ function ImageCard({
     onDelete,
 }: ImageCardType) {
     // const {downloadedFiles} = useAppSelector(store=> store.galery)
-    const [isDownloaded, setIsDownloaded] = useState(false)
-
+    const [isDownloaded, setIsDownloaded] = useState(false);
 
     function handleDownload(): void {
         saveAs(imgURL, imgName);
         // markAsDownloaded(imgName)
-        setIsDownloaded(true)
+        setIsDownloaded(true);
     }
 
-    function handleDelete():void {
+    function handleDelete(): void {
         // startTransition(() => onDelete(imgName, userId))
-        if(onDelete) onDelete(imgName, userId)
-        
+        if (onDelete) onDelete(imgName, userId);
     }
 
     // useEffect(function() {
@@ -46,23 +43,25 @@ function ImageCard({
         <div className="relative w-screen h-60">
             {!isDownloaded && (
                 <button
-                onClick={handleDownload}
-                className="absolute z-30 cursor-pointer bottom-[0.4rem] right-[0.4rem]"
-            >
-                <MdDownloadForOffline size={41} color="white" />
-            </button>
+                    onClick={handleDownload}
+                    className="absolute z-30 cursor-pointer bottom-[0.4rem] right-[0.4rem]"
+                >
+                    <div className="bg-black rounded-3xl">
+                        <MdDownloadForOffline size={51} color="white" />
+                    </div>
+                </button>
             )}
 
             {isDownloaded && (
                 <button
-                // onClick={handleDownload}
-                className="absolute z-30 cursor-pointer bottom-[0.6rem] right-[0.6rem]"
-            >
-                <FaCheckCircle size={35} color="white" />
-            </button>
+                    // onClick={handleDownload}
+                    className="absolute z-30 cursor-pointer bottom-[0.6rem] right-[0.6rem]"
+                >
+                    <div className="bg-black rounded-3xl">
+                    <FaCheckCircle size={45} color="white" />
+                    </div>
+                </button>
             )}
-            
-
 
             {mode === "edit" && (
                 <button

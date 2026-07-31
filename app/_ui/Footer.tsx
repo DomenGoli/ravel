@@ -23,15 +23,15 @@ function Footer() {
                 href="/upload"
                 className={`${linkStyle.base} ${pathname === footerRouts.upload ? linkStyle.active : linkStyle.inactive}`}
             >
-                Naloži slike
+                Moje slike
             </Link>
 
-            <Link
+            {/* <Link
                 href="/myfiles"
                 className={`${linkStyle.base} ${pathname === footerRouts.myfiles ? linkStyle.active : linkStyle.inactive}`}
             >
                 Moje slike
-            </Link>
+            </Link> */}
         </div>
     );
 }

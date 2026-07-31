@@ -1,21 +1,23 @@
 "use client";
 import ImageCard from "./ImageCard";
 import { useAppSelector } from "../hooks";
+import { useQuery } from "@tanstack/react-query";
+import { getUserImagesById } from "../_lib/actions";
 
-
+const userId = "1"
 
 function ImagesList() {
-    const { imageArray, userId } = useAppSelector((store) => store.galery);
+    // const { imageArray, userId } = useAppSelector((store) => store.galery);
     // queryClient.invalidateQueries({ queryKey: ['user-images'] })
     // const searchParams = useSearchParams();
     // const folder = searchParams?.get("id") || 1;
 
-    // const { data, isLoading } = useQuery({
-    //     queryKey: ["user-images"],
-    //     queryFn: ()=>fetchImages(userFolder),
-    //     refetchOnMount: true,
+    const { data:imageArray, isLoading } = useQuery({
+        queryKey: ["user-images"],
+        queryFn: ()=>getUserImagesById(userId),
+        refetchOnMount: true,
 
-    // });
+    });
     // useEffect(function() {
     //     queryClient.invalidateQueries({ queryKey: ['user-images'], exact: true  })
 
@@ -36,7 +38,7 @@ function ImagesList() {
                     <ImageCard
                     key={i}
                     imgName={img}
-                    imgURL={`${process.env.NEXT_PUBLIC_SUPABASE_BUCKET}/${userId}/${img}`}
+                    imgURL={`${process.env.NEXT_PUBLIC_SUPABASE_BUCKET}/${img}`}
                     />
                 ))}
                 {/* </Suspense> */}

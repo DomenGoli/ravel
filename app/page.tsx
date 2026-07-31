@@ -9,11 +9,11 @@ import {
 // import LastFive from "./_components/LastFive";
 
 export default async function Home() {
-    const users = (await getUsers()) || [];
-    const session = await auth();
-    const { id } = await getUserByName(session?.user?.name);
-    const contacts = users.filter((user) => user.id !== id || user.id === "4");
-    console.log(session);
+    // const users = (await getUsers()) || [];
+    // const session = await auth();
+    // const { id } = await getUserByName(session?.user?.name);
+    // const contacts = users.filter((user) => user.id !== id || user.id === "4");
+    // console.log(session);
 
     // const lastFiveImages = await getLastFiveImages();
     // console.log("BBBBBBBBBBBBBBBBBBBBBBBBBB:",images);
@@ -55,7 +55,7 @@ export default async function Home() {
         <div className="grid h-dvh grid-rows-[auto_1fr_auto]">
             <Navbar />
             <div className="overflow-scroll no-scrollbar">
-                <Galery contacts={contacts} />
+                <Galery />
             </div>
             <Footer />
         </div>

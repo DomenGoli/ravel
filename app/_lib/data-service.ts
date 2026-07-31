@@ -1,4 +1,5 @@
 import { supabase } from "@/app/_lib/supabase";
+import * as tus from "tus-js-client" 
 
 export async function getUsers() {
     const { data, error } = await supabase.from("users").select("*");
@@ -111,6 +112,7 @@ export async function getUserByName(
     }
     return data;
 }
+
 export async function uploadFileDS(file: File, id: string) {
     const imageName = file.name;
     const imagePath = `/${id}/${imageName}`;
@@ -128,6 +130,10 @@ export async function uploadFileDS(file: File, id: string) {
         return data;
     }
 }
+
+
+
+
 
 // export async function deleteFile(imageName: string, id: string | undefined) {
 //     console.log("tagged", imageName, id);

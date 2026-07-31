@@ -1,4 +1,5 @@
 // import NextAuth from "next-auth";
+//*
 import { auth } from "@/app/_lib/auth";
 import { apiAuthPrefix } from "./routes";
 

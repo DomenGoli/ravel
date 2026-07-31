@@ -24,7 +24,7 @@ type GaleryProps = {
     lastFiveImages?: lastUplodedImageType[] | undefined
 };
 
-function Galery({ contacts }: GaleryProps) {
+function Galery() {
     // const slike = await getUserImagesById(1);
     const queryClient = new QueryClient();
     // const {imageArray} = useAppSelector(store => store.galery)
@@ -55,12 +55,12 @@ function Galery({ contacts }: GaleryProps) {
 
     return (
         <div className="grid h-full grid-rows-[auto_1fr]">
-            <UserList contacts={contacts} />
+            {/* <UserList contacts={contacts} /> */}
             <div className="overflow-scroll no-scrollbar">
                 <QueryClientProvider client={queryClient}>
                     <Provider store={store}>
                         <ImagesList />
-                        <LastFive />
+                        {/* <LastFive /> */}
                     </Provider>
                 </QueryClientProvider>
             </div>
