@@ -44,15 +44,16 @@ function ImageCard({
             {!isDownloaded && (
                 <button
                     onClick={handleDownload}
-                    className="absolute z-30 cursor-pointer bottom-[0.4rem] right-[0.4rem]"
+                    className="absolute z-30 cursor-pointer bottom-[0.4rem] text-(--strava-ozadje) bg-(--strava-button) rounded-md px-2 py-1 right-[0.4rem] active:bg-white duration-700"
                 >
-                    <div className="bg-black rounded-3xl">
+                    Prenesi
+                    {/* <div className="bg-black rounded-3xl">
                         <MdDownloadForOffline size={51} color="white" />
-                    </div>
+                    </div> */}
                 </button>
             )}
 
-            {isDownloaded && (
+            {/* {isDownloaded && (
                 <button
                     // onClick={handleDownload}
                     className="absolute z-30 cursor-pointer bottom-[0.6rem] right-[0.6rem]"
@@ -61,7 +62,7 @@ function ImageCard({
                     <FaCheckCircle size={45} color="white" />
                     </div>
                 </button>
-            )}
+            )} */}
 
             {mode === "edit" && (
                 <button

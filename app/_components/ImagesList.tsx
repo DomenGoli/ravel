@@ -25,8 +25,8 @@ function ImagesList() {
     // const slike = folder ? getUserImagesById(folder) : []
     if(!imageArray) return null
     if(imageArray?.length <= 1) return (
-        <div className="flex items-center justify-center h-full">
-            <p className="text-lg">Brez slik</p>
+        <div className="flex items-center justify-center h-full pt-50">
+            <p className="text-lg">Prazno</p>
         </div>
     )
 

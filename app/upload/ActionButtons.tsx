@@ -10,7 +10,7 @@ function ActionButtons({disabled, onUpload, onClear}: ActionButtonsProps) {
             <button
                 onClick={onUpload}
                 disabled={disabled}
-                className="flex items-center text-(--strava-ozadje) font-bold cursor-pointer bg-(--strava-button) px-6 py-2 rounded-md"
+                className="flex items-center text-(--strava-ozadje) font-bold cursor-pointer bg-(--strava-button) active:bg-white duration-700 px-6 py-2 rounded-md"
             >
                 Naloži
             </button>

@@ -7,7 +7,7 @@ function Navbar() {
         <div className="flex justify-between items-center w-full h-15 p-7 bg-(--strava-bar)">
             <HomeButtonProvider />
             <RavelLogoButton />
-            <ActiveUser />
+            {/* <ActiveUser /> */}
         </div>
     );
 }
