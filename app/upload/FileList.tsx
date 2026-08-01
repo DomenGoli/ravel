@@ -18,7 +18,7 @@ function FileList({files, onRemove, uploading}: FileListProps) {
 
     return (
         <div className="space-y-2">
-            <label className="font-semibold">Slike:</label>
+            {/* <label className="font-semibold">Slike:</label> */}
             <div className="space-y-2">
                 {files.map(file => (
                     <FileItem file={file} onRemove={onRemove} uploading={uploading}/>

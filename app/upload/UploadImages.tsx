@@ -23,8 +23,8 @@ function UploadImages({ id }: UploadImagesProps) {
     const [files, setFiles] = useState<FileWithProgress[]>([]);
     const [uploading, setUploading] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
-
-    const [status, setStatus] = useState<UploadStatus>("idle");
+    const pendingFiles = files.filter((file) => !file.uploaded)
+    // const [status, setStatus] = useState<UploadStatus>("idle");
 
     function handleFileSelect(e: ChangeEvent<HTMLInputElement>) {
         if (!e.target.files?.length) return;
@@ -50,7 +50,8 @@ function UploadImages({ id }: UploadImagesProps) {
     }
 
     async function handleUpload() {
-        const uploadPromises = files.map(async (fileWithProgress)=> {
+        // const pendingFiles = files.filter((file) => !file.uploaded)
+        const uploadPromises = pendingFiles.map(async (fileWithProgress)=> {
             return new Promise<void>((resolve, reject) => {
                 var upload = new tus.Upload(fileWithProgress.file, {
                     // Supabase TUS endpoint (with direct storage hostname)
@@ -125,7 +126,7 @@ function UploadImages({ id }: UploadImagesProps) {
                     disabled={uploading}
                     onFileSelect={handleFileSelect}
                 />
-                {files.length !== 0 && <ActionButtons
+                {pendingFiles.length !== 0 && <ActionButtons
                     disabled={files.length === 0 || uploading}
                     onUpload={handleUpload}
                     onClear={handleClear}
